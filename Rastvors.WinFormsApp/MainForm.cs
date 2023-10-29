@@ -1,17 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Rastvors.BLL.Interfaces;
+﻿using Rastvors.BLL.Interfaces;
 using Rastvors.Common.Entities;
-using Rastvors.DAL;
 using Rastvors.Dependencies;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Rastvors.WinFormsApp
 {
@@ -29,13 +18,6 @@ namespace Rastvors.WinFormsApp
 
             _rastvorsManagerBLL = DependencyResolver.Instance.RastvorsManagerLogic;
 
-            //var a = new ApplicationDBContext();
-
-            //foreach (var row in a.Components)
-            //{
-            //    dataGridView_Rastvors.Rows.Add(row.Name, row.Id);
-            //}
-
             var a = _rastvorsManagerBLL.GetAllRastvors();
             var b = _rastvorsManagerBLL.GetAllComponents();
 
@@ -48,11 +30,6 @@ namespace Rastvors.WinFormsApp
                 Components.AddRange(b);
             }
 
-            //foreach (var row in Components)
-            //{
-            //    dataGridView_Rastvors.Rows.Add(row.Name, row.Id);
-            //}
-
             foreach (var row in RastvorsDATA)
             {
                 dataGridView_Rastvors.Rows.Add(row.Name, row.Value);
@@ -62,31 +39,13 @@ namespace Rastvors.WinFormsApp
             dataGridView_Rastvors.CellClick += new DataGridViewCellEventHandler(dataGridView_Rastvors_CellClick);
         }
 
-
-        public Component AddComponent()
-        {
-            using (var a = new ApplicationDBContext())
-            {
-                a.Components.Add(new Component()
-                {
-                    Name = "COMPCOMP"
-                });
-                var comp = a.Components.FirstOrDefault(x => x.Name == "comp1");
-                return new Component()
-                {
-                    Id = comp.Id,
-                    Name = comp.Name
-                };
-            }
-
-            //return new Component();
-        }
-
+        /// <summary>
+        /// Сохранение прогресса таблицы в БД
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_Save_Click(object sender, EventArgs e)
         {
-            //var comp = AddComponent();
-
-            //dataGridView_Rastvors.Rows.Add(comp.Name, comp.Id);
 
             foreach (var row in RastvorsDATA)
             {
@@ -235,9 +194,6 @@ namespace Rastvors.WinFormsApp
 
                 if (rast_current != null)
                 {
-                    //var list_component = Components.Where(
-                    //    x=>rast_current.Structures.FirstOrDefault(y=>y.ComponentId==x.Id)==null)
-                    //    .ToList();
                     // Создайте новый экземпляр формы
                     AddComponentForm form_AddComponent = new AddComponentForm(dataGridView_Components, rast_current, label_IsCorrectStructure);
 
@@ -285,28 +241,7 @@ namespace Rastvors.WinFormsApp
                         }
                     }
                 }
-                //int ind = dataGridView_Components.CurrentCell.RowIndex;
-                //string name = dataGridView_Components.Rows[ind].Cells[0].Value.ToString();
-                //var rast_remove = RastvorsDATA.FirstOrDefault(x => x.Name == name);
-                //if (rast_remove != null)
-                //{
-                //    RastvorsDATA.Remove(rast_remove);
-                //}
-                //dataGridView_Rastvors.Rows.RemoveAt(ind);
             }
         }
-
-
-
-        //private void dataGridView_Components_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-
-
-        //}
-
-        //public static void OnForm2Closed()
-        //{
-        //    dataGridView_Rastvors.Rows.Clear();
-        //}
     }
 }

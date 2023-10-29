@@ -1,15 +1,6 @@
 ﻿using Rastvors.Common.Entities;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Rastvors.WinFormsApp
 {
@@ -21,7 +12,7 @@ namespace Rastvors.WinFormsApp
 
         Label _label_IsCorrectStructure_MainForm;
 
-        List<Common.Entities.Component> _FreeComponents;
+        List<Component> _FreeComponents;
         public AddComponentForm(DataGridView dataGrid_Components, Rastvor rastvor, Label label_IsCorrectStructure)
         {
             InitializeComponent();
@@ -62,12 +53,12 @@ namespace Rastvors.WinFormsApp
             }
 
             // Проверьте, что значение больше нуля
-            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1)
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
             // Проверяет что значение <= 100
-            else if (double.TryParse((sender as System.Windows.Forms.TextBox).Text + e.KeyChar, out double value) && value > 100)
+            else if (double.TryParse((sender as TextBox).Text + e.KeyChar, out double value) && value > 100)
             {
                 e.Handled = true;
             }
@@ -92,7 +83,7 @@ namespace Rastvors.WinFormsApp
                 {
                     RastvorId = _currenRastvor.Id,
                     ComponentId = component.Id,
-                    Component = new Common.Entities.Component()
+                    Component = new Component()
                     {
                         Id = component.Id,
                         Name = component.Name,

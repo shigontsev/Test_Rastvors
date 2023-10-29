@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Rastvors.Common.Entities;
 using Rastvors.DAL.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rastvors.DAL.DAO
 {
@@ -31,8 +26,6 @@ namespace Rastvors.DAL.DAO
 
         public bool Save(IEnumerable<Rastvor> rastvors)
         {
-            //throw new NotImplementedException();
-
             var input_rastvors = rastvors.ToList();
 
             foreach (var rastvor in input_rastvors)
@@ -49,9 +42,6 @@ namespace Rastvors.DAL.DAO
                 {
                     try
                     {
-                        // Измените данные в вашей таблице
-                        // ...
-
                         //Если "rastvors" не строк то очищается таблица с растворами
                         if (input_rastvors.Count == 0) 
                         { 
@@ -134,12 +124,7 @@ namespace Rastvors.DAL.DAO
                                             b = true;
                                             skip_component = component;
                                             break;
-                                        }
-                                        //else
-                                        //{
-
-                                        //}
-                                        
+                                        }                                        
                                     }
 
                                     //Удалить данный Компонет в Структуре в БД

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Rastvors.Common.Entities;
+﻿namespace Rastvors.Common.Entities;
 
 public partial class Rastvor
 {

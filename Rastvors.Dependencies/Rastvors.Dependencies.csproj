@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rastvors.BLL\Rastvors.BLL.csproj" />
+    <ProjectReference Include="..\Rastvors.DAL\Rastvors.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

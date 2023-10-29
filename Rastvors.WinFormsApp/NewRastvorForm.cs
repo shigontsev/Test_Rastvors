@@ -1,14 +1,4 @@
 ﻿using Rastvors.Common.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Rastvors.WinFormsApp
 {
@@ -26,19 +16,6 @@ namespace Rastvors.WinFormsApp
 
         }
 
-        //void textBox_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-        //    {
-        //        e.Handled = true;
-        //    }
-
-        //    // Проверьте, что значение больше нуля
-        //    if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
-        //    {
-        //        e.Handled = true;
-        //    }
-        //}
 
         private void textBox_Value_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -48,7 +25,7 @@ namespace Rastvors.WinFormsApp
             }
 
             // Проверьте, что значение больше нуля
-            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1)
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }

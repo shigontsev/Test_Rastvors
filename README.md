@@ -8,6 +8,13 @@ Descktop приложение выполнено в WinForms и использу
 3. БД в MS SQL Server
 4. WinForms
 
+Расположение БД : 
+Test_Rastvors/Rastvors.WinFormsApp/App_Data/
+ИЛИ
+
+Расположение скрипта на БД : 
+Test_Rastvors/BD_Script/
+
 Сущности
 
 1. Компоненты:
